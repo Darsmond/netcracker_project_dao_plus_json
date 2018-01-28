@@ -24,6 +24,7 @@ public class PostgresGroupDao implements GroupDao {
         Object g = new Object();
         g.setId(rs.getInt("object_id"));
         g.setName(rs.getString("name"));
+        g.setObject_type_id(rs.getInt("object_type_id"));
         return g;
     }
 

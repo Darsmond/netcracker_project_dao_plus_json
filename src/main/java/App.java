@@ -2,6 +2,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -23,14 +26,20 @@ public class App{
         return conn;
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, JsonProcessingException {
         App app = new App();
         app.connect();
 
         Connection conn = DriverManager.getConnection(url, user, password);
         PostgresGroupDao DaoFirst = new PostgresGroupDao(conn);
 
-        Object g = DaoFirst.read(1);
-        System.out.print(g.getName());
+        Object object_test = DaoFirst.read(2);
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(object_test);
+        System.out.println("json " + jsonString);
+
+        //Object g = DaoFirst.read(1);
+        //System.out.print(g.getName());
     }
 }
