@@ -7,8 +7,10 @@ public class PostgresGroupDao implements GroupDao {
 
     private final Connection connection;
 
-    public Object create() {
-        return null;
+    public void create() throws SQLException {
+        String sql = "INSERT INTO objects DEFAULT VALUES";
+        PreparedStatement stm = connection.prepareStatement(sql);
+        stm.execute();
     }
 
     public Object read(int key) throws SQLException {

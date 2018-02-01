@@ -4,7 +4,7 @@ import java.sql.SQLException;
 public interface GroupDao {
 
     /** Создает новую запись и соответствующий ей объект */
-    public Object create();
+    public void create() throws SQLException;
 
     /** Возвращает объект соответствующий записи с первичным ключом key или null */
     Object read(int key) throws SQLException;

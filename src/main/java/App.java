@@ -34,7 +34,8 @@ public class App{
         Connection conn = DriverManager.getConnection(url, user, password);
         PostgresGroupDao DaoFirst = new PostgresGroupDao(conn);
 
-        DaoFirst.delete(1);
+        //DaoFirst.delete(1);
+        DaoFirst.create();
         Object object_test = DaoFirst.read(2);
 
         ObjectMapper mapper = new ObjectMapper();
