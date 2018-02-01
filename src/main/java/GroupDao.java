@@ -7,12 +7,12 @@ public interface GroupDao {
     public Object create();
 
     /** Возвращает объект соответствующий записи с первичным ключом key или null */
-    public Object read(int key) throws SQLException;
+    Object read(int key) throws SQLException;
 
     /** Сохраняет состояние объекта group в базе данных */
     public void update(Object group);
 
     /** Удаляет запись об объекте из базы данных */
-    public void delete(Object group);
+    public void delete(int key) throws SQLException;
 
 }

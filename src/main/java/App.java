@@ -27,12 +27,14 @@ public class App{
     }
 
     public static void main(String[] args) throws SQLException, JsonProcessingException {
+
         App app = new App();
         app.connect();
 
         Connection conn = DriverManager.getConnection(url, user, password);
         PostgresGroupDao DaoFirst = new PostgresGroupDao(conn);
 
+        DaoFirst.delete(1);
         Object object_test = DaoFirst.read(2);
 
         ObjectMapper mapper = new ObjectMapper();

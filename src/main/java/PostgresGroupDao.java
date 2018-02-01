@@ -30,9 +30,12 @@ public class PostgresGroupDao implements GroupDao {
 
     }
 
-    public void delete(Object group) {
-
+    public void delete(int key) throws SQLException {
+        String sql = "DELETE FROM objects WHERE object_id = ?;";
+        PreparedStatement stm = connection.prepareStatement(sql);
+        stm.setInt(1, key);
     }
+
 
     public PostgresGroupDao(Connection connection) {
         this.connection = connection;
