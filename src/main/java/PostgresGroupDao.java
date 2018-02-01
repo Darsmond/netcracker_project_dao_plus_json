@@ -7,12 +7,10 @@ public class PostgresGroupDao implements GroupDao {
 
     private final Connection connection;
 
-    @Override
     public Object create() {
         return null;
     }
 
-    @Override
     public Object read(int key) throws SQLException {
         String sql = "SELECT * FROM objects WHERE object_id = ?;";
         PreparedStatement stm = connection.prepareStatement(sql);
@@ -28,12 +26,10 @@ public class PostgresGroupDao implements GroupDao {
         return g;
     }
 
-    @Override
     public void update(Object group) {
 
     }
 
-    @Override
     public void delete(Object group) {
 
     }
