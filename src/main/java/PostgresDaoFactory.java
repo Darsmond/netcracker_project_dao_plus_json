@@ -13,7 +13,6 @@ public class PostgresDaoFactory implements DaoFactory {
         return DriverManager.getConnection(url, user, password);
     }
 
-    @Override
     public GroupDao getGroupDao(Connection connection) {
         return null;
     }
